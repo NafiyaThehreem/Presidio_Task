@@ -13,8 +13,7 @@ except ImportError:
 # for entering the Employee records into the database's table named EMPLOYEES
 
 def insertIntoTable(mycursor, mydb):
-    mycursor.execute('''CREATE TABLE IF NOT EXISTS employees(emp_id INTEGER PRIMARY KEY,emp_name VARCHAR,age INTEGER, 
-    date_of_birth DATE, salary REAL, emp_dept VARCHAR)''')
+
     print("Enter Employee id")
     emp_id = int(input())
     print("Enter Employee Name")
@@ -200,6 +199,8 @@ def main():
     mydb = sqlite3.connect('Employeedatabase.db')
     mycursor = mydb.cursor()
     print('Database Connected Successfully')
+    mycursor.execute('''CREATE TABLE IF NOT EXISTS employees(emp_id INTEGER PRIMARY KEY,emp_name VARCHAR,age INTEGER, 
+        date_of_birth DATE, salary REAL, emp_dept VARCHAR)''')
 
     while (True):
         print("1-Create an Employee Record")
